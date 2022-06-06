@@ -44,7 +44,9 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        pass
+        character = cast.get_first_actor("character")
+        velocity = self._keyboard_service.get_direction()
+        character.set_velocity(velocity)
 
     def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
@@ -52,7 +54,13 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        pass
+        banner = cast.get_first_actor("banners")
+        character = cast.get_first_actor("character")
+
+        banner.set_text("")
+        max_x = self._video_service.get_width()
+        max_y = self._video_service.get_height()
+        character.move_next(max_x, max_y)
 
     def _do_outputs(self, cast):
         """Draws the actors on the screen.

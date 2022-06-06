@@ -20,7 +20,7 @@ CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
 ROWS = 40
-CAPTION = "Change this text"
+CAPTION = "GREED"
 WHITE = Color(255, 255, 255)
 
 
@@ -31,11 +31,23 @@ def main():
 
     # create the banner
     banner = Actor()
-    banner.set_text("The Score")
+    banner.set_text("Score: ")
     banner.set_font_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
+
+    # create playable character
+    x = int(MAX_X / 2)
+    y = int(MAX_Y / 2)
+    position = Point(x, y)
+
+    character = Actor()
+    character.set_text("#")
+    character.set_font_size(FONT_SIZE)
+    character.set_color(WHITE)
+    character.set_position(position)
+    cast.add_actor("character", character)
 
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
