@@ -20,7 +20,11 @@ project folder. Select the main module inside the hunter folder and click the "r
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
+<<<<<<< HEAD
 +-- rfk                 (source code for game)
+=======
++-- greed               (source code for game)
+>>>>>>> 87cf63290f5bf04cdc7bdc18feeab0066743106f
   +-- data              (data files for game)
   +-- game              (specific game classes)
   +-- __main__.py       (entry point for program)
@@ -34,4 +38,8 @@ root                    (project root folder)
 
 ## Authors
 ---
+<<<<<<< HEAD
 Ariana Jerome | Kevin Pina | Kobe Lemon | Luyanda Mavuma
+=======
+Ariana Jerome | Kevin Pina 
+>>>>>>> 87cf63290f5bf04cdc7bdc18feeab0066743106f
