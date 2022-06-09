@@ -83,8 +83,8 @@ class Director:
         blue_gem.set_velocity(Point(0,5))
         purple_gem.set_velocity(Point(0,5))
 
-        stone.set_position(Point(random.randint(0, 900),50))
-        green_gem.set_position(Point(random.randint(0, 900),1))
+        #stone.set_position(Point(random.randint(0, 900),50))
+        #green_gem.set_position(Point(random.randint(0, 900),1))
         light_blue_gem.set_position(Point(random.randint(0, 900),1))
         blue_gem.set_position(Point(random.randint(0, 900),1))
         purple_gem.set_position(Point(random.randint(0, 900),1))
