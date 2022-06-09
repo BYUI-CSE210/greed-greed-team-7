@@ -1,6 +1,6 @@
 from game.shared.point import Point
 from game.shared.color import Color
-from game.casting.thing import Thing
+from game.casting.rock_gem import RockGem
 
 import random
 
@@ -54,59 +54,60 @@ class Director:
             cast (Cast): The cast of actors.
         """
 
-        # Color list
-        red = Color(255, 204, 204)
-        orange = Color(225, 204, 153)
-        yellow = Color(225, 153, 153)
-        green = Color(204, 255, 204)
-        light_blue = Color(205,255,255)
-        blue = Color(204, 229, 255)
-        purple = Color(229, 204, 255)
-        gray = Color(96, 96, 96)
+        # Color list That we use for our gems and Rocks.
+        green = Color(0, 255, 0)
+        blue = Color(0, 0, 255)
+        red = Color(255, 0, 0)
+        white = Color(255, 255, 255)
 
         # Falling Objects
-        stone = Thing()
-        green_gem = Thing()
-        light_blue_gem = Thing()
-        blue_gem = Thing()
-        purple_gem = Thing()
 
-        stone.set_text("o")
+        #Creating instances for each one of the rocks and gems
+        stone = RockGem()
+        green_gem = RockGem()
+        light_blue_gem = RockGem()
+        blue_gem = RockGem()
+        red_gem = RockGem()
+
+        #Setting the valie for the Flying objects it could be a rock or a gem 
+        stone.set_text("0")
         green_gem.set_text("*")
         light_blue_gem.set_text("*")
         blue_gem.set_text("*")
-        purple_gem.set_text("*")
+        red_gem.set_text("*")
 
+        # Setting the rate (velocity) for the falling objects - Rocks and gems
         stone.set_velocity(Point(0,5))        
         green_gem.set_velocity(Point(0,5))
-        light_blue_gem.set_velocity(Point(0,5))
         blue_gem.set_velocity(Point(0,5))
-        purple_gem.set_velocity(Point(0,5))
+        red_gem.set_velocity(Point(0,5))
 
-        #stone.set_position(Point(random.randint(0, 900),50))
-        #green_gem.set_position(Point(random.randint(0, 900),1))
+        #Creatin a random position for each Flying object Rock and Gems
+        stone.set_position(Point(random.randint(0, 900),50))
+        green_gem.set_position(Point(random.randint(0, 900),1))
         light_blue_gem.set_position(Point(random.randint(0, 900),1))
         blue_gem.set_position(Point(random.randint(0, 900),1))
-        purple_gem.set_position(Point(random.randint(0, 900),1))
+        red_gem.set_position(Point(random.randint(0, 900),1))
 
-        stone.set_color(gray)
+
+        #assigning the color to each rock and Gem
+        stone.set_color(white)
         green_gem.set_color(green)
-        light_blue_gem.set_color(light_blue)
         blue_gem.set_color(blue)
-        purple_gem.set_color(purple)
+        red_gem.set_color(red)
 
-        stone.set_font_size(30)
-        green_gem.set_font_size(30)
-        light_blue_gem.set_font_size(30)
-        blue_gem.set_font_size(30)
-        purple_gem.set_font_size(30)
+        #Using the set_font_size and a value for rocks and gems
+        stone.set_font_size(25)
+        green_gem.set_font_size(25)
+        blue_gem.set_font_size(25)
+        red_gem.set_font_size(25)
 
         # establishes gems and stones
         cast.add_actor("things", stone)
         cast.add_actor("things", green_gem)
         cast.add_actor("things", light_blue_gem)
         cast.add_actor("things", blue_gem)
-        cast.add_actor("things", purple_gem)
+        cast.add_actor("things",red_gem)
 
         # Move everything        
         score = cast.get_first_actor("score")
@@ -117,6 +118,8 @@ class Director:
         y_max = self._video_service.get_height()
         player.move_next(y_max, y_max)
 
+
+        #Logic of the points sistem. 
         for actor in cast.get_actors("things"):
             actor.move_next(x_max, y_max)
 
