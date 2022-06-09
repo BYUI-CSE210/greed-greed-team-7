@@ -1,7 +1,7 @@
 from game.casting.actor import Actor
 
 
-class Thing(Actor):
+class RockGem(Actor):
     """
     A thing that falls from the sky. It can be either a stone or a gem.
 
