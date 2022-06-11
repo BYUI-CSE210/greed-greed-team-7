@@ -75,7 +75,7 @@ class Director:
         special_gem = RockGem()
         special_rock = RockGem()
         if special_number == True:
-            special_rock.set_text("0")
+            special_rock.set_text("@")
             special_rock.set_velocity(Point(0,5))
             special_rock.set_color(random_color)
             special_rock.set_font_size(50)
@@ -172,7 +172,7 @@ class Director:
                     cast.remove_actor("things", actor)
                 
             # Special rock
-            elif actor.get_text() == "%":
+            elif actor.get_text() == "@":
                 actor_x = actor.get_position().get_x()
                 actor_y = actor.get_position().get_y()  
 
