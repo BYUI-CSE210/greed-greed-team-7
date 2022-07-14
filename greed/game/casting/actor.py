@@ -1,3 +1,4 @@
+import random
 from game.shared.color import Color
 from game.shared.point import Point
 
@@ -54,7 +55,21 @@ class Actor:
         Returns:
             string: The actor's textual representation.
         """
+        
         return self._text
+
+    def get_text_frequency(self, max_amount):
+        """Resets the actor's textual representation.
+        
+        Returns:
+            boolean: tell whether to output actor or not to
+        """
+
+        text_frequency = random.randint(0, max_amount)
+        if text_frequency == max_amount:
+            return True
+        else:
+            return False
 
     def get_velocity(self):
         """Gets the actor's speed and direction.

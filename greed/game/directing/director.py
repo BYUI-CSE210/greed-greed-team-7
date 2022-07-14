@@ -1,3 +1,4 @@
+from time import sleep
 from game.shared.point import Point
 from game.shared.color import Color
 from game.casting.rock_gem import RockGem
@@ -100,7 +101,17 @@ class Director:
         green_gem.set_velocity(Point(0,5))
         blue_gem.set_velocity(Point(0,5))
         red_gem.set_velocity(Point(0,5))
-        
+
+        # Resetting the value of the flying object. 
+        if rock.get_text_frequency(5) == False:
+             rock.set_text("")
+        if green_gem.get_text_frequency(3) == False:
+             green_gem.set_text("")
+        if blue_gem.get_text_frequency(15) == False:
+             blue_gem.set_text("")
+        if red_gem.get_text_frequency(25) == False:
+             red_gem.set_text("")
+
         # Create a random position for each Flying object Rock and Gems
         rock.set_position(Point(random.randint(0, 900),50))
         green_gem.set_position(Point(random.randint(0, 900),1))
@@ -120,7 +131,7 @@ class Director:
         blue_gem.set_font_size(25)
         red_gem.set_font_size(25)
 
-        # establishes gems and rocks
+        #stablishes gems and rocks
         cast.add_actor("things", rock)
         cast.add_actor("things", green_gem)
         cast.add_actor("things", light_blue_gem)
@@ -134,7 +145,9 @@ class Director:
         y_player = player.get_position().get_y()
         x_max = self._video_service.get_width()
         y_max = self._video_service.get_height()
-        player.move_next(y_max, y_max)
+        player.move_next(x_max, y_max)
+        
+
 
         # Logic of the points system. 
         for actor in cast.get_actors("things"):
@@ -157,6 +170,7 @@ class Director:
                 if ((x_player - 10 < actor_x < x_player + 10) and (y_player - 10 < actor_y < y_player + 10)):
                     score.add_points(-100)
                     score.set_text("Bad luck! You found a rock!")
+                    sleep(2000)
                 if actor_y > y_max - 30 or ((x_player - 10 < actor_x < x_player + 10) and (y_player - 10 < actor_y < y_player + 10)):
                     cast.remove_actor("things", actor)
 

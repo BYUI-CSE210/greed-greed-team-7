@@ -15,7 +15,7 @@ class RockGem(Actor):
     def __init__(self):
         super().__init__()
         self._gem = ""
-        self._rock = ""
+        self._rock = 0
         self._special_item = 0
     
     def get_gem(self):
@@ -44,7 +44,7 @@ class RockGem(Actor):
         Args:
             special_item (int): Random number to create a bigger object
         """
-        self._special_item = random.randint(0, 100)
+        self._special_item = random.randint(0, 250)
         if self._special_item == 100:
             self._special_item = True
         return self._special_item
