@@ -52,7 +52,7 @@ def main():
     #create the player Setting the values for each property
     #Creating and instance to use the properties and methods from Actor
     player = Actor()
-    player.set_text("#")
+    player.set_text("H")
     cast.add_actor("player", player)
     player.set_font_size(FONT_SIZE)
     player.set_position(position)
